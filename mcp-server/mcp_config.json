@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "ai-job-hunter": {
+      "command": "C:/Users/nandi/Desktop/ai-job-hunter/backend/venv/Scripts/python.exe",
+      "args": [
+        "C:/Users/nandi/Desktop/ai-job-hunter/mcp-server/mcp_server.py"
+      ],
+      "env": {
+        "PYTHONPATH": "C:/Users/nandi/Desktop/ai-job-hunter/backend"
+      }
+    }
+  }
+}

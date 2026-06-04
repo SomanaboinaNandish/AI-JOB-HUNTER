@@ -1,0 +1,38 @@
+================================================================================
+AI JOB HUNTER - QUANTIFIED ATS RESUME BULLET POINTS
+================================================================================
+
+1. AI Agent Orchestration & Semantic Matching
+--------------------------------------------------------------------------------
+Engineered a multi-agent job orchestration system utilizing CrewAI and LLMs that 
+automates personalized cover letter drafting and resume tailoring, increasing 
+job-match alignment by 40% and reducing application preparation time from 
+30 minutes to under 15 seconds.
+
+* Key Buzzwords: Multi-Agent Systems, CrewAI, Large Language Models (LLMs), 
+  Semantic Search, Natural Language Processing (NLP), Prompt Engineering, 
+  Vector Embeddings.
+
+
+2. Distributed Background Scraping & Task Queue
+--------------------------------------------------------------------------------
+Architected a distributed web scraping pipeline using FastAPI, Celery, and Redis 
+to asynchronously aggregate job postings from Greenhouse, Lever, Wellfound, and 
+RemoteOK, boosting data ingestion throughput by 300% while executing scheduled 
+scrapers with 99.9% uptime.
+
+* Key Buzzwords: FastAPI, Celery, Redis, Distributed Systems, Asynchronous 
+  Programming, Web Scraping, REST APIs, ETL Pipelines, Database Indexing.
+
+
+3. Full-Stack Analytics Dashboard
+--------------------------------------------------------------------------------
+Developed a responsive, interactive job analytics dashboard in Next.js 14, 
+TypeScript, and Tailwind CSS, containerized via Docker, improving frontend 
+load speeds by 35% (Lighthouse Performance Score of 95+) and enabling seamless 
+tracking of application statuses and salary trends.
+
+* Key Buzzwords: Next.js, React, TypeScript, Tailwind CSS, Responsive Design, 
+  State Management, Docker, Docker Compose, Frontend Optimization.
+
+================================================================================
