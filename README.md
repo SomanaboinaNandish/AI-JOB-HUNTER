@@ -18,6 +18,7 @@ A production-grade, AI-powered job hunting platform built specifically for fresh
 | **Modern Dashboard** | Linear-inspired dark UI with animations |
 | **Semantic Search** | Natural language job search |
 | **Cover Letter Gen** | AI-generated, personalised cover letters |
+| **MCP Integration** | Model Context Protocol server exposing database and scraping tools |
 
 ---
 
@@ -113,6 +114,10 @@ ai-job-hunter/
 │   └── nginx.conf
 ├── scripts/
 │   └── setup.sh
+├── mcp-server/              # Model Context Protocol (MCP) Server
+│   ├── mcp_server.py        # FastMCP tools implementation
+│   ├── requirements.txt     # Dependencies
+│   └── mcp_config.json      # Claude Desktop configuration template
 ├── docker-compose.yml
 └── .env.example
 ```
@@ -174,6 +179,41 @@ Key endpoints:
 - **Auth**: JWT, Google OAuth (authlib)
 - **Notifications**: python-telegram-bot, fastapi-mail
 - **Deploy**: Docker, docker-compose, Nginx
+
+---
+
+## 🔌 Model Context Protocol (MCP) Integration
+
+The project includes an **MCP Server** built with Python **FastMCP** that exposes your job hunter platform directly as tool integrations for LLM clients (like Claude Desktop or Cursor).
+
+### Setup MCP in Claude Desktop
+
+1. Open your Claude Desktop configuration file (located at `%APPDATA%/Claude/claude_desktop_config.json`).
+2. Add the `ai-job-hunter` server definition under the `mcpServers` block:
+   ```json
+   {
+     "mcpServers": {
+       "ai-job-hunter": {
+         "command": "C:/Users/nandi/Desktop/ai-job-hunter/backend/venv/Scripts/python.exe",
+         "args": [
+           "C:/Users/nandi/Desktop/ai-job-hunter/mcp-server/mcp_server.py"
+         ],
+         "env": {
+           "PYTHONPATH": "C:/Users/nandi/Desktop/ai-job-hunter/backend"
+         }
+       }
+     }
+   }
+   ```
+3. Restart your Claude Desktop app.
+
+### Available Tools:
+* `search_local_jobs(query, limit)`: Search local MongoDB jobs list.
+* `get_application_stats(user_email)`: Track user application status metrics.
+* `trigger_scrapers_async()`: Dispatch job scraping background task to Celery.
+* `run_scrapers_directly()`: Synchronously run all scrapers in the foreground.
+* `match_resume_to_job(user_email, job_id)`: Evaluate resume alignment against a job using CrewAI.
+* `generate_cover_letter(user_email, job_id)`: Generate a tailored cover letter using AI.
 
 ---
 
